@@ -10,4 +10,4 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
     - name: git pull from drb.aws.hubzero.org
-      run: ssh webadmin@drbcicd530.aws.hubzero.org "date >> /var/www/html/test.txt; cd /var/www/html; git pull;"
+      run: ssh webadmin@drbcicd530.aws.hubzero.org "date >> /var/www/test542cicdrepotest.txt; cd /var/www/test542cicdrepo; git pull;"
