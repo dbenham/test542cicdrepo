@@ -1,1 +1,13 @@
-
+name: update-server-on-gitpush
+on: [push]
+jobs:
+  push-step-1:
+    runs-on: self-hosted
+    steps:
+    - name: Install SSH Key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_KEY }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+    - name: git pull from drb.aws.hubzero.org
+      run: ssh webadmin@drbcicd530.aws.hubzero.org "date >> /var/www/html/test.txt; cd /var/www/html; git pull;"
